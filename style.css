@@ -1,0 +1,657 @@
+/* Tokens — Documentação de Identidade Visual, seções 3, 4, 5 e 25 */
+:root {
+  --backgroundPrimary: #f3d5a6;
+  --surfacePrimary: #fdfbfc;
+  --surfaceBlue: #cfe7fd;
+  --brandPrimary: #32121c;
+  --brandPrimaryLight: #f7e9ee;
+  --primaryText: #ffffff;
+  --textPrimary: #32121c;
+  --textSecondary: #554b4e;
+  --textMuted: #8a8587;
+  --accentBlue: #4195cb;
+  --accentBlueDark: #075895;
+
+  --radiusSm: 12px;
+  --radiusMd: 18px;
+  --radiusLg: 24px;
+  --radiusXl: 32px;
+  --radiusPill: 999px;
+
+  --sombra: 0 8px 24px rgba(50, 18, 28, 0.08);
+  --fontFamily: Inter, "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--backgroundPrimary);
+  color: var(--textPrimary);
+  font-family: var(--fontFamily);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 1024px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--surfacePrimary);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accentBlueDark);
+  outline-offset: 2px;
+}
+
+/* Tipografia */
+.tituloHero {
+  margin: 8px 0 24px;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.tituloPagina {
+  margin: 8px 0 16px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.tituloSecao {
+  margin: 24px 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nomeProduto {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.preco {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.legenda {
+  margin: 0 0 8px;
+  color: var(--textSecondary);
+  font-size: 13px;
+}
+
+.texto2 {
+  color: var(--textSecondary);
+}
+
+/* Cabeçalho e menu por perfil */
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.cabecalho:empty {
+  display: none;
+}
+
+.marca {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.usuarioAtual {
+  margin-left: auto;
+  color: var(--textSecondary);
+  font-size: 14px;
+}
+
+.menu {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.menu button {
+  flex: none;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radiusPill);
+  background: var(--brandPrimaryLight);
+  color: var(--textPrimary);
+  font: 600 15px var(--fontFamily);
+  cursor: pointer;
+}
+
+.menu button[aria-current="page"] {
+  background: var(--brandPrimary);
+  color: var(--primaryText);
+}
+
+.conteudo {
+  padding: 0 16px 120px;
+}
+
+/* Botões */
+.botaoPrimario,
+.botaoSecundario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: var(--radiusLg);
+  font: 700 16px var(--fontFamily);
+  cursor: pointer;
+}
+
+.botaoPrimario {
+  background: var(--brandPrimary);
+  color: var(--primaryText);
+}
+
+.botaoSecundario {
+  background: var(--brandPrimaryLight);
+  color: var(--textPrimary);
+}
+
+.botaoTexto {
+  min-height: 44px;
+  padding: 0 8px;
+  border: 0;
+  background: none;
+  color: var(--textSecondary);
+  font: 600 15px var(--fontFamily);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.botaoCircular {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surfacePrimary);
+  color: var(--textPrimary);
+  box-shadow: var(--sombra);
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+button:active:not(:disabled) {
+  opacity: 0.75;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.acoes {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Catálogo — card de produto (seção 8) */
+.gradeProdutos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.cardProduto {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radiusLg);
+  background: var(--surfacePrimary);
+  box-shadow: var(--sombra);
+}
+
+.cardProduto.selecionado {
+  outline: 2px solid var(--brandPrimary);
+}
+
+.cardImagem {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--surfaceBlue);
+}
+
+.cardProduto.indisponivel .cardImagem {
+  opacity: 0.5;
+}
+
+.cardFoto {
+  width: 100%;
+  height: 100%;
+  padding: 16px 16px 64px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.cardFoto img,
+.fotoDestaque img,
+.fotoPlaceholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.controleQtd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: var(--radiusPill);
+  background: var(--surfacePrimary);
+}
+
+.controleQtd .botaoCircular {
+  background: var(--brandPrimaryLight);
+  box-shadow: none;
+}
+
+.controleQtd span {
+  min-width: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cardImagem .controleQtd {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: var(--sombra);
+}
+
+.cardLinha {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding: 12px 16px;
+}
+
+.nomeCard {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.selo,
+.pilula {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radiusPill);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.selo {
+  align-self: flex-start;
+  margin: 0 16px 12px;
+  background: var(--brandPrimaryLight);
+}
+
+.seloAlerta,
+.pilula {
+  background: var(--surfaceBlue);
+  color: var(--accentBlueDark);
+}
+
+.pilula.critico {
+  background: var(--brandPrimary);
+  color: var(--primaryText);
+}
+
+/* Navegação inferior (seção 9) */
+.barraInferior {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 8px 8px 8px 20px;
+  border-radius: var(--radiusXl);
+  background: var(--brandPrimary);
+  color: var(--primaryText);
+  box-shadow: var(--sombra);
+}
+
+.botaoBarra {
+  min-height: 52px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--radiusLg);
+  background: var(--surfacePrimary);
+  color: var(--textPrimary);
+  font: 700 16px var(--fontFamily);
+  cursor: pointer;
+}
+
+/* Detalhes do produto (seções 10, 11 e 12) */
+.fotoDestaque {
+  aspect-ratio: 4 / 3;
+  margin: 8px 0 16px;
+  padding: 24px;
+  border-radius: var(--radiusXl);
+  background: var(--surfaceBlue);
+}
+
+.infoProduto {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.listaIngredientes {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0 0 8px;
+  overflow-x: auto;
+  list-style: none;
+}
+
+.ingrediente {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 88px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--textPrimary);
+  font: 500 13px var(--fontFamily);
+  text-align: center;
+  cursor: pointer;
+}
+
+.ingrediente .fotoPlaceholder,
+.ingrediente img {
+  width: 88px;
+  height: 88px;
+  border: 2px solid var(--brandPrimaryLight);
+  border-radius: 16px;
+  background: var(--surfaceBlue);
+}
+
+.ingrediente.removido .fotoPlaceholder,
+.ingrediente.removido img {
+  opacity: 0.4;
+}
+
+.listaAdicionais {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adicional {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radiusPill);
+  background: var(--brandPrimaryLight);
+  color: var(--textPrimary);
+  font: 600 15px var(--fontFamily);
+  cursor: pointer;
+}
+
+.adicional[aria-pressed="true"] {
+  background: var(--brandPrimary);
+  color: var(--primaryText);
+}
+
+.acaoFixa {
+  position: sticky;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 12px;
+  border-radius: var(--radiusXl);
+  background: var(--surfacePrimary);
+  box-shadow: var(--sombra);
+}
+
+.acaoFixa .botaoPrimario {
+  flex: 1;
+}
+
+/* Cards, listas e formulários */
+.cartao {
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  border-radius: var(--radiusMd);
+  background: var(--surfacePrimary);
+  box-shadow: var(--sombra);
+}
+
+.cartaoAzul {
+  background: var(--surfaceBlue);
+  box-shadow: none;
+}
+
+.cartao h2,
+.cartao h3,
+.cartao p {
+  margin: 0 0 8px;
+}
+
+.cartao h3 {
+  font-size: 16px;
+}
+
+.lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.itens {
+  margin: 0 0 12px;
+  padding-left: 20px;
+}
+
+.itens small,
+.linhaResumo small {
+  display: block;
+  color: var(--textSecondary);
+  font-size: 13px;
+}
+
+.linhaResumo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cardInfo {
+  margin-bottom: 16px;
+  padding: 0 16px;
+  border-radius: var(--radiusMd);
+  background: var(--surfaceBlue);
+}
+
+.cardInfo summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cardInfo ul {
+  margin: 0;
+  padding: 0 0 12px 20px;
+}
+
+.mensagem {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: var(--radiusMd);
+  font-weight: 600;
+}
+
+.mensagem.erro {
+  background: var(--brandPrimaryLight);
+}
+
+.mensagem.sucesso {
+  background: var(--surfaceBlue);
+  color: var(--accentBlueDark);
+}
+
+.campo {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.campo > span,
+legend {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.campoCheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-bottom: 16px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid var(--textMuted);
+  border-radius: var(--radiusSm);
+  background: var(--surfacePrimary);
+  color: var(--textPrimary);
+  font: inherit;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 24px;
+  min-height: 24px;
+  margin: 0;
+  accent-color: var(--brandPrimary);
+}
+
+[aria-invalid="true"] {
+  border: 2px solid var(--brandPrimary);
+}
+
+.erroCampo {
+  color: var(--brandPrimary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+fieldset {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--textMuted);
+  border-radius: var(--radiusMd);
+}
+
+.linhaGrade {
+  display: grid;
+  grid-template-columns: 1fr 96px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.linhaGrade.tres {
+  grid-template-columns: 1fr 80px 96px;
+}
+
+.relatorio {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 16px;
+  margin: 0 0 16px;
+}
+
+.relatorio dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+.entrar {
+  max-width: 420px;
+  margin: 48px auto 0;
+}
+
+/* Responsividade — seção 22 */
+@media (min-width: 768px) {
+  .gradeProdutos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .conteudo {
+    padding: 0 24px 120px;
+  }
+
+  .cabecalho {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gradeProdutos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
